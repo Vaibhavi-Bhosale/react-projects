@@ -5,13 +5,14 @@ import { BrowserRouter,Link } from "react-router";
 
 const About = () => {
   return (
-    <div className="about-us bg-[#f9f9f9] p-6 text-center">
-      <h1 className="text-3xl font-bold text-[#86A788] mb-4">About Us</h1>
+    <div className="about-us bg-[#f9f9f9] p-6 text-center w-screen">
+      <h1 className="text-3xl font-bold text-[#3E5879] mb-4">About Us</h1>
       <p className="text-gray-600 text-lg mb-4">
-        Welcome to <span className="text-[#86A788] font-semibold">Kanu Flower Shop</span>, where nature meets beauty! We are passionate about bringing fresh and vibrant flowers to your life. Whether it’s a special occasion or just a way to brighten your day, we are here to provide you with the best floral arrangements.
+        Welcome to <span className="text-[#3E5879] font-semibold">Kanu Flower Shop</span>,  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt provident inventore eveniet quaerat accusamus corporis atque, voluptatibus dicta labore quis sit enim. Praesentium, aperiam.
       </p>
       <p className="text-gray-600 text-lg mb-4">
-        Our journey began with a simple mission: to spread happiness and joy through flowers. From handpicked roses to exotic lilies, we ensure every bloom is of the highest quality.
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, alias cupiditate ad quisquam tempore magnam. Amet, minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, in!
+
       </p>
       <p className="text-gray-600 text-lg mb-4">
         Thank you for choosing us as your go-to flower shop. We look forward to creating magical moments with you!
@@ -22,13 +23,6 @@ const About = () => {
         className="rounded-lg shadow-lg mx-auto max-w-lg mt-4"
       />
 
-
-      <div>
-           
-              <Link to="/">Home pe Jana he </Link>
-            
-           
-      </div>
     </div>
   );
 };

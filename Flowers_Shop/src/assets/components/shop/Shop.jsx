@@ -68,23 +68,22 @@ const Shop= ()=>{
   
        
 
-    return(
-        
-            <div className="container mx-auto p-4">
-              <h1 className="text-3xl font-bold text-center mb-6">Our Flower Collection</h1>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {flowers.map((flower) => (
-                  <Card
-                    key={flower.id}
-                    image={flower.image}
-                    name={flower.name}
-                    price={flower.price}
-                  />
-                ))}
-              </div>
-            </div>
-          );
-    
+      return (
+        <div className="w-full min-h-screen   bg-[#F5EFE7] p-10">
+          <h1 className="text-3xl font-bold text-center mb-6">Our Flower Collection</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {flowers.map((flower) => (
+              <Card
+                key={flower.id}
+                image={flower.image}
+                name={flower.name}
+                price={flower.price}
+              />
+            ))}
+          </div>
+        </div>
+      );
+      
 }
 
 export default Shop;

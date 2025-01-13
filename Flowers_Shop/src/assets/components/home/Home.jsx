@@ -12,11 +12,12 @@ const Home= ()=>{
 
     return(
         <> 
-           <div id="home">
+           <div id="home" className="w-screen">
                  
-                 <h2>Welcome to the Kanu Flower Shops</h2>
+                 <h2 className=" sm:text-7xl text-4xl text-white">Welcome to the Kanu Flower Shops</h2>
                   
-                <button onClick={handleShopClick}>Buy Now</button>
+                <button className="bg-[#213555] hover:bg-[#3E5879] text-white"
+                 onClick={handleShopClick}>Buy Now</button>
 
                  
            </div>

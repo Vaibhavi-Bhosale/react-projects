@@ -1,55 +1,63 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CardContext } from "../../../context/CardContextProvider";
 
 const Cart = () => {
+  const { data , setData} = useContext(CardContext);
+  const [total, setTotal] = useState(0);
 
-    const {data} = useContext(CardContext);
-    const [total, setTotal] = useState(0)
+  // Calculate total price
+  useEffect(() => {
+    const calculatedTotal = data.reduce((acc, item) => acc + item.price, 0);
+    setTotal(calculatedTotal);
+  }, [data]);
 
-    if (data.length === 0) {
-        // Show a message or alternative content if cartItems is empty
-        return (
-          <div className="mt-8 p-4 border border-gray-300 rounded-lg height-full">
-             
-            <p className="mt-4 text-gray-500 text-3xl">Oops ! Your cart is empty. Add some Flowers </p>
-          </div>
-        );
-      }
+  const removeItem = (index,cprice)=>{
+    const updatedData =  data.filter((_,i)=> i !==index)
+    setData(updatedData);
 
-        return (
-            <div className="mt-8 p-4 border border-gray-300 rounded-lg">
-                <h2 className="text-xl font-bold">Your Flower Basket</h2>
-    
-                <div>
-                    <ul className="mt-4">
-    
-                        {
-                         
-          
-                         data.map((item , index)=>(
-                            <li key={index} className="flex justify-between py-2 border-b">  
-                                 <span> ${item.name} </span>
-                                 <span> ${item.price} </span>
+    setTotal((prev)=>prev - cprice);
+    console.log("ohh flower removed")
+  }
 
-                            </li>
+  if (data.length === 0) {
+    // Show a message or alternative content if cartItems is empty
+    return (
+      <div className=" p-4  bg-[#F5EFE7] w-screen min-h-screen">
+        <p className="mt-4 text-gray-500 text-3xl  text-center py-4">
+          Oops! Your cart is empty. Add some Flowers.
+        </p>
+      </div>
+    );
+  }
 
-                             
-                         ))
-                        }
-    
-                             
-                     
-    
-                    </ul>
-                </div>
+  return (
+    <div className="w-screen min-h-screen mt-8 p-4 border border-[#F5EFE7] rounded-lg">
+      <h2 className="text-xl text-[#3E5879] font-bold text-center ">Your Flower Basket</h2>
 
-                <p className="text-3xl center">Your Flower Basket Ready in Few Minuts Pleaser Wait 😀</p>
-    
-            </div>
-        )
-     
+      <div className="mt-4">
+        <ul>
+          {data.map((item, index) => (
+            <li key={index} className="flex justify-between py-2 border-b ml-10 mr-10">
+              <span>{item.name}</span>
+              <span>Rs. {item.price}</span>
 
-}
+              <button onClick={()=>{
+                       const cprice=  item.price ;
+                       removeItem(index,cprice);
+              }}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-4 text-center">
+        <p className="text-2xl font-bold">Total: Rs. {total}</p>
+        <p className="text-xl text-gray-600">
+          Your Flower Basket is Ready in a Few Minutes! Please Wait 😀
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default Cart;
-
