@@ -1,0 +1,19 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color:  #86A788;
+    color: #fff;
+    width:100vw;
+    height: 50px;
+    align-items: center;
+}
+nav h2{
+    font-size: xx-large;
+    margin-left: 10px;
+}
+
+nav div{
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+}
